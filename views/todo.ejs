@@ -12,19 +12,21 @@
     </form>
 
     <!-- List of Todos -->
-    <ul id="todoList" class="list-group">
-        <% todos.forEach(todo=> { %>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+    <div id="todoList" class="d-flex flex-wrap justify-content-center">
+        <% todos.forEach(todo => { %>
+        <div class="card m-2">
+            <div class="card-body d-flex flex-column justify-content-between" style="height: 200px;">
                 <span class="<%= todo.completed ? 'completed' : '' %>">
                     <%= todo.task %>
                 </span>
-                <div>
+                <div class="mt-auto">
                     <button class="btn btn-sm btn-success mr-2 editBtn" data-id="<%= todo.id %>">Edit</button>
                     <button class="btn btn-sm btn-danger deleteBtn" data-id="<%= todo.id %>">Delete</button>
                 </div>
-            </li>
-            <% }); %>
-    </ul>
+            </div>
+        </div>
+        <% }); %>
+    </div>
 
     <!-- Edit Todo Modal -->
     <div id="editModal" class="modal fade" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -87,7 +89,7 @@
         let editId;
         $('.editBtn').on('click', function () {
             editId = $(this).data('id');
-            const currentTask = $(this).closest('li').find('span').text();
+            const currentTask = $(this).closest('.card-body').find('span').text();
             $('#editTask').val(currentTask);
             $('#editModal').modal('show');
         });
@@ -110,3 +112,81 @@
         });
     });
 </script>
+<style>
+
+    body {
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    .container {
+        max-width: 800px; /* Limit the width of the container */
+        margin: auto; /* Center the container */
+    }
+
+    h1 {
+        color: #343a40; /* Darker color for the heading */
+        margin-bottom: 20px; /* Space below the heading */
+    }
+
+    .card {
+        border: 1px solid #dee2e6; /* Light border for the cards */
+        border-radius: 0.5rem; /* Rounded corners */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        transition: transform 0.2s; /* Smooth hover effect */
+        width: 200px; /* Fixed width for square shape */
+        height: 200px; /* Fixed height for square shape */
+        margin: 10px; /* Space around each card */
+        display: flex; /* Flexbox for alignment */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: space-between; /* Space between items */
+    }
+
+    .card:hover {
+        transform: scale(1.05); /* Slightly enlarge the card on hover */
+    }
+
+    .completed {
+        text-decoration: line-through; /* Strikethrough for completed tasks */
+        color: #6c757d; /* Gray color for completed tasks */
+    }
+
+    .input-group {
+        margin-bottom: 20px; /* Space below the input group */
+    }
+
+    .btn {
+        border-radius: 0.25rem; /* Rounded button corners */
+    }
+
+    .modal-content {
+        border-radius: 0.5rem; /* Rounded corners for modal */
+    }
+
+    .modal-header {
+        background-color: #007bff; /* Blue header for the modal */
+               color: white; /* White text for the modal header */
+    }
+
+    .modal-body {
+        padding: 20px; /* Padding inside the modal body */
+    }
+
+    .form-control {
+        border-radius: 0.25rem; /* Rounded corners for input fields */
+    }
+
+    /* Ensure the cards are displayed in a grid format */
+    #todoList {
+        display: flex; /* Use flexbox for layout */
+        flex-wrap: wrap; /* Allow wrapping to the next line */
+        justify-content: center; /* Center the cards */
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        .card {
+            width: 150px; /* Adjust width for smaller screens */
+            height: 150px; /* Adjust height for smaller screens */
+        }
+    }
+</style>

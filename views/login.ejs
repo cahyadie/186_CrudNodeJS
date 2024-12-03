@@ -1,13 +1,91 @@
-<h1>Login</h1>
-<form action="/login" method="POST">
-    <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username" name="username" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); /* Ganti dengan URL gambar latar belakang Anda */
+            background-size: cover; /* Mengatur gambar agar menutupi seluruh latar belakang */
+            background-position: center; /* Memusatkan gambar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.2); /* Warna putih dengan transparansi */
+            backdrop-filter: blur(10px); /* Efek blur di belakang */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s; /* Animation on hover */
+        }
+        .login-container:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+        h1 {
+            margin: 1rem 0;
+            color: rgb(100, 99, 99); /* Change text color to white */
+        }
+        .form-label {
+            color: #628ab2; /* Light color for labels */
+        }
+        .form-control {
+            border-radius: 5px; /* Rounded corners for input fields */
+            background: rgba(255, 255, 255, 0.8); /* Background input dengan transparansi */
+        }
+        .btn-primary {
+            width: 100%;
+            background-color: #ff6f61; /* Custom button color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners for button */
+        }
+        .btn-primary:hover {
+            background-color: #ff4a3a; /* Darker shade on hover */
+        }
+        p {
+            margin-top: 1rem;
+            color: rgb(18, 112, 171); /* Change text color to white */
+        }
+        a {
+            color: #ff0000; /* Custom link color */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .login-image {
+            width: 80px; /* Adjust the size of the image */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 1rem; /* Space between image and title */
+        }
+    </style>
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9eb92786-5e60-46ac-ae2c-d33af137f691/d9fw4w3-6b3597c6-5c68-48ad-8870-0123367c3540.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzllYjkyNzg2LTVlNjAtNDZhYy1hZTJjLWQzM2FmMTM3ZjY5MVwvZDlmdzR3My02YjM1OTdjNi01YzY4LTQ4YWQtODg3MC0wMTIzMzY3YzM1NDAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5PPlsfud_R9B-wmHOzC4qF5TGEKLIAYEybx-FbUu2QQ" alt="Login Image" class="login-image"> <!-- Replace with your image URL -->
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Belum punya akun? <a href="/signup">Daftar di sini</a>.</p>
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
-<p>Belum punya akun? <a href="/signup">Daftar di sini</a>.</p>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
